@@ -1,0 +1,22 @@
+name: Test CI
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Check Node.js version
+        run: node --version
+      - name: make setup
+        run: make setup
+      - name: make start
+        run: make start
+      - name: make test
+        run:  make test
+      - name: make lint
+        run: make lint
